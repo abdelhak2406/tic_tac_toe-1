@@ -62,7 +62,7 @@ class Board:
             value = self.check_combinaison(combinaison)
             if value != False:
                 return value
-        retrun False
+        return False
 
     def check_combinaison(self, combinaison):
         if self._board[combinaison[0]] == None:
