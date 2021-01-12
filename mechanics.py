@@ -134,6 +134,7 @@ class GUI:
 
             if return_value == False:
                 if(self.my_board.check_saturation()):
+                    self.end_label.configure(text="it's a Drawn")
                     print("it's a Drawn")
             else:
                 winer, combinaison = return_value
@@ -173,7 +174,11 @@ class GUI:
         self.b9 = Button(self.root, text=" ", font=("open sans", 30), height=3, width=6,
                     bg="#DEDEDE", command=lambda: self.button_click(self.b9, (3,3)))
 
-        self.end_label = Label(text="", font=("open sans", 15))
+        space = " "*30
+        self.end_label = Label(text=space, font=("open sans", 15))
+
+        restart = Button(self.root, text="Restart", font=("open sans", 12),
+                    bg="#DEDEDE", command=lambda: self.restart())
 
         top_lab.grid(row=0, columnspan=3)
 
@@ -190,6 +195,7 @@ class GUI:
         self.b9.grid(row=3, column=2)
 
         self.end_label.grid(row=4, columnspan=3)
+        restart.grid(row=5, column=2)
 
     def _disable_buttons(self):
         self.b1.configure(state=DISABLED)
@@ -217,3 +223,14 @@ class GUI:
 
         for case in winner_cases:
             cases_equivalence[case].configure(bg="#90ee90")
+
+    def restart(self):
+        self.init_board()
+        self.init_elements()
+
+def main():
+    user_interface = GUI()
+
+
+if __name__ == '__main__':
+    main()
