@@ -1,4 +1,4 @@
-#prequisits
+# prequisits
 
 * Tkinter
 #Linux
